@@ -1,3 +1,8 @@
+{{ config(
+materialized='incremental',
+incremental_strategy='append'
+) }}
+
 with 
 
 source as (
@@ -20,3 +25,7 @@ renamed as (
 )
 
 select * from renamed
+
+{% if is_incremental() %}
+WHERE _fivetran_synced > (SELECT MAX(_fivetran_synced) FROM {{ this }})
+{% endif %}

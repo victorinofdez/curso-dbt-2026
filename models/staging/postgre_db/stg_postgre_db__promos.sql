@@ -10,7 +10,7 @@ renamed as (
 
     select
         promo_id,
-        discount,
+        {{ porcentaje_descuento('discount') }} as descuento,
         status,
         _fivetran_deleted,
         _fivetran_synced

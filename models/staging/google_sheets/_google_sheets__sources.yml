@@ -25,3 +25,10 @@ sources:
           - name: MONTH
           - name: PRODUCT_ID
           - name: _FIVETRAN_SYNCED
+      
+      - name: users
+        columns:
+          - name: Nombre
+          - name: DNI
+          - name: email
+          - name: fecha_alta_sistema
